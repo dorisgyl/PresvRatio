@@ -1,0 +1,2167 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     89509,       2159]
+NotebookOptionsPosition[     87892,       2124]
+NotebookOutlinePosition[     88343,       2142]
+CellTagsIndexPosition[     88300,       2139]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"S", ".", "aureus"}], " ", "growth", " ", "with", " ", "Sodium", 
+    " ", "benzoate"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"data1", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"8.0", ",", "36.0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"16.0", ",", "35.67"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"32.0", ",", "32.13"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"64.0", ",", "2.8"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model1", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data1", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r21", "=", 
+     RowBox[{"model1", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"S", ".", "aureus"}], " ", "growth", " ", "with", " ", "Sodium", 
+     " ", "nitrite"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.0", ",", "1.54"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2.0", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4.0", ",", "0.99"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model2", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data2", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r22", "=", 
+     RowBox[{"model2", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"S", ".", "aureus"}], " ", "growth", " ", "with", " ", "Vitamin",
+      " ", "E"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data3", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"50.0", ",", "3.25"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"100.0", ",", "3.0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"200.0", ",", "2.85"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"400.0", ",", "2.1"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model3", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data3", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r23", "=", 
+     RowBox[{"model3", "[", "\"\<RSquared\>\"", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9230539196703815`*^9, 3.9230541456085043`*^9}, {
+   3.923054206048769*^9, 3.9230542163068657`*^9}, {3.9230544001261187`*^9, 
+   3.923054401952507*^9}, {3.9230544613395133`*^9, 3.923054491551174*^9}, {
+   3.9230545245958185`*^9, 3.923054549367623*^9}, {3.9230546225111303`*^9, 
+   3.92305462750391*^9}, {3.923054669722293*^9, 3.9230547059445724`*^9}, {
+   3.9230548107596083`*^9, 3.923054811359679*^9}, 3.923054880752033*^9, 
+   3.923054923515502*^9, {3.923055027511407*^9, 3.9230550631326904`*^9}, {
+   3.923055405429776*^9, 3.9230554134288273`*^9}, {3.9230554804141912`*^9, 
+   3.923055502530029*^9}, 3.9231242196698475`*^9, {3.9231242568508368`*^9, 
+   3.923124278630778*^9}, {3.9397953695437827`*^9, 3.939795390328084*^9}, {
+   3.939798867737504*^9, 3.93979893639625*^9}, {3.9398021608091726`*^9, 
+   3.939802166368103*^9}},
+ CellLabel->
+  "In[346]:=",ExpressionUUID->"979dc90e-20fb-4c5a-8b9b-eb3edfb44ab8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Create", " ", "three", " ", "subplots"}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"plot1", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model1", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "70"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Red", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data1", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Red", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data1", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r21", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Sodium benzoate\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", "All"}], ",", 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"plot2", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model2", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "5"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Green", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Green", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data2", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Green", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data2", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r22", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Sodium nitrite\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", "All"}], ",", 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"plot3", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model3", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "500"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Blue", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data3", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Blue", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data3", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r23", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Vitamin E\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", "All"}], ",", 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Create", " ", "main", " ", "title"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"title", "=", 
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<STAPHYLOCOCCUS AUREUS\>\"", ",", "Bold", ",", "16"}], 
+      "]"}]}], ";"}], "  ", 
+   RowBox[{"(*", 
+    RowBox[{"Bold", ",", 
+     RowBox[{"font", " ", "size", " ", "16"}]}], "*)"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Combine", " ", "title", " ", "and", " ", "plots", " ", "using", " ", 
+     "Column"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Column", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Text", "[", "title", "]"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Add", " ", "title"}], "*)"}], 
+       RowBox[{"GraphicsRow", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"plot1", ",", "plot2", ",", "plot3"}], "}"}], ",", 
+         RowBox[{"ImageSize", "->", "Full"}], ",", 
+         RowBox[{"Spacings", "->", "20"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"Alignment", "->", "Center"}]}], "  ", 
+    RowBox[{"(*", 
+     RowBox[{"Center", " ", "alignment"}], "*)"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.939796691044942*^9, {3.9397967642921963`*^9, 3.939796764679963*^9}, {
+   3.939796834055331*^9, 3.9397968355680523`*^9}, {3.939796887612073*^9, 
+   3.9397969086651225`*^9}, {3.9397969525844755`*^9, 
+   3.9397970310707035`*^9}, {3.9397970690916405`*^9, 
+   3.9397970695681086`*^9}, {3.9397972495292835`*^9, 3.939797253476447*^9}, {
+   3.939797395111492*^9, 3.9397973965267277`*^9}, {3.9397979507925477`*^9, 
+   3.939797964395543*^9}, {3.9397979992036314`*^9, 3.93979803456723*^9}, 
+   3.939798152034486*^9, {3.9397982015532236`*^9, 3.939798262603424*^9}, {
+   3.9397983084462624`*^9, 3.939798336705991*^9}, {3.939798478916562*^9, 
+   3.9397984813371077`*^9}, {3.939798829343526*^9, 3.9397988389496503`*^9}, {
+   3.939798991393549*^9, 3.939798993999193*^9}, 3.9398019850473633`*^9, 
+   3.9398022473764505`*^9},
+ CellLabel->
+  "In[355]:=",ExpressionUUID->"3df53d13-3f39-4508-a0e2-351ad640639f"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     InterpretationBox[Cell[BoxData[
+       FormBox[
+        StyleBox["\<\"STAPHYLOCOCCUS AUREUS\"\>",
+         StripOnInput->False,
+         FontSize->16,
+         FontWeight->Bold], TextForm]], "InlineText",ExpressionUUID->
+       "679a9474-2804-4aab-8150-a0e136ac4dc0"],
+      Text[
+       Style["STAPHYLOCOCCUS AUREUS", Bold, 16]]]},
+    {
+     GraphicsBox[{{}, {InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[1, 0, 0], Thickness[0.003], Opacity[1.], 
+              LineBox[CompressedData["
+1:eJwVT2s0lAkA/YzxaB0pebVbjJAl7zzGhLmY+bJCvpYSS/LoRTUK5VHKK02S
+rMdmR8bpoENbopIJccajmjrlVUqn0rKb2jVSopnZtbM/7rnnnnvuPfeaxhzc
+Ek8jCCJQif/5gV35ZMN8q1ekjl77kbMkAtoEMQGKMrbYyW2+7wwJxjR5eJWi
+lv391nAnAz4JvqYgg664yf4kEF6+kU/ibllf1oK8l823ti37mEVi+8uxk7Py
+EXYrlzyQcIhEXdYf2VL5JHtZ5lHGjm0kAgcSVKflc2zxu5e5pCmJtjQjVL9T
+h7u/W7G8kYsMwwr1c/TloBknJ6V6cdF9uYd8ddQA17seBRgOcTDkbpmXH7sK
+vA+3912M4uDY1SS1s58ZOFmQH/Xhoy/m2fs25sya4dJvk6XGmb7otXFOPfl2
+LRprdvYe0fRF1dsGv7lqK6hpdknKBT6IMPKoLPvFBrwv1/QElj4wN0w/1xhl
+D9tt2et3i7whvN1zO07LEU/ykwLCNnujpnb71JI8J+R6zdbbjwGW8z0f9k6u
+B39P6POHBwBhQYdtdKwL4FJaKZxlQ9xvvCv8hStYbq2pn7TYSEzYytNhMjG6
+uvrfAWcvaG7+ThTe4o5yvQatY5s8YVVxayRafwO+StN6WpI84Gny2uGfUg9k
+jCXSWvM2QB7Cy67S9oIk7oKz+kUWvKTPahcS2ega5OuO97rjTtwu+lwyMBRc
+nVIwxsRK+kNjyVpvFLYczb1DMBEgi3c2G/HGihtnTrGs3ZBW3LeXLPFBW0+3
+Tr63K96F6Wr2+/hCTdTuG7nHBVS3eZ8ujYODd18oiGPOOHciIetNBwf1MU4N
+M2XroXOoqkZrPxd574NUEzudcFq1/HeVdSSys4vGW4YdQfanFYW+JGG2WJJw
+SuaA0fHzzuv4G1GycmCqztwBsQKeTEL6gVMQ98IizQ6Op1lWD774oaGuial/
+zwYL+pIjP9/8AVsmfWqqZq1BGyHtRbv9wfk7aqenhxXG338ZjzHYhCcO00tS
+iizRJtx/4+nQJghKxe3cdgsMFzyW1ucGoKl7Tb/tEnNMLVvw53ACQde5N3bV
+cQ2GpCE1MUQQPle8Ge2PYWCRqIp+dS0IYcNqETPxq2HR3Mi2OLAZfm1PjXI6
+VqLvwaB4QicYow538jg/GmDyz72T87uCUWySL3aR6YIInSjn9QZDWCVa19y0
+FJ4Rw4qK1RQcTIvttk5pYK3ufYGpCYUm4/jk5RINLL3f4dHIUPqrWKKHVzTw
+yrU+s9OMQrDhBNeXp4HjuumKCSsKJ7SZkQ7z6ui6b6JwdFXmv74+842aOnyY
+CXJJEAUM2k91Muiwlu74NTSYwpPHdPt0Gh26dSEbXlPKvkfPk10mVPF2hVfG
+bAgF3r0c4kq9KnKky+RGERSKO58ZXrBTRU/dLVn8bmW+IYs87EHDlcjGSuke
+CtGXQwrtjGko1ROy0vZRmKm1GpxaVEF89un0wv1KLRyKjBarQD3qJ1nzYQpE
+hWVKoL8KpvWoSo8UZX+pQqRpo4KnEi6rL5UCo2SA6NFWQZ27ffrzNOX/sxmF
+rAECRTNm38ZmUOjiBw/ONRNIrTcS/ZWp3F9gYXS9lEBUlHZ46nHlvjxZZGIq
+gY36NNliltLPeXzJMozAfzAVIOg=
+               "]]},
+             Annotation[#, "Charting`Private`Tag$79640#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 2.043044357080743},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0, 0], 
+             PointSize[0.02], 
+             PointBox[{{8., 36.}, {16., 35.67}, {32., 32.13}, {64., 2.8}}]}, {
+             RGBColor[
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0, 0], 
+             PointSize[0.005], 
+             PointBox[{{8., 36.}, {16., 35.67}, {32., 32.13}, {64., 2.8}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 0.907\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          ImagePadding->{{37.2109375, 0.5}, {37.26953125, 0.5}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Sodium benzoate\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{All, All},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{
+             Scaled[0.02], 
+             Scaled[0.02]}, {
+             Scaled[0.05], 
+             Scaled[0.05]}},
+          Ticks->{Automatic, Automatic}], {210, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[0, 1, 0], Thickness[0.003], Opacity[1.], 
+              LineBox[CompressedData["
+1:eJwVyH0w1HkcwHHrMWuj9Z0pEruci0SoO6no840mLVLaVJTKkodCl7FzFZVk
+wxntVpKU2yTKmUWRO3U5IQ95yFN1DR3RpvutZR/s7m9RrvvjPa+Zty3nxO6j
+ujo6Oju+9b9F5ziG7lEpm1cFS0eXBZDQMsAM3McMBWfRsvaN/iQstDZcZDLj
+wNXYpyqcRUJRYy7DgHkaPJ7nny3xIyHem5ugYWSDjzte7rqVhIG52DwZ4yYc
+pF9jb/MmwWhozEHKKAd+n2drsisJxS+FJyWMelAHZ1T0IRIqq7KH4te8hA+X
+JJ7itxqIgb6bk0kDsLvmh4NyoQYSxavGayvfQS+uOr00TgNU2wyHEc9RSNSd
+Db3uooHLSzqdio+Mg+Dpyl6aWg2coT1/6XV9gr4H3xn/U6+Gky8yOCccCGBq
+gr3az6nh4U80tgVLCkovjkGFnxqKU44Tbvtk8KnO58qEiRrShfPBM5NyCHc0
+qFkxqAKdgVH85xkljM2SPceKVLAyOfrUHicVZFKeicw5KviourHX5Jkaqhc4
+djXfvr/42NmrJ0kg3d+FiqZmIOijYLWNzSwEvUjLaayZAaKZk9YumgPHXVR2
+V+oMrKG/sfY9/AXszKLeu2+ZASqoIoaVX+HOC+EXvvEM+EnDNHYhOnhzdcWo
+X7cS/m6KooQ5UzAx9/mZxVUlPM5qOcRUUfByWOQ+FqaEaAPuaE+PLo6r00Qb
+MJQQmZTymFaoh72+71hrO6EA15jVPYER+thG1UmGVCvglbmzCXeDAWZof73w
+MVkBTyvTbznrGeJ7M+w7x70VkEJx2tX13hCz7N9dCKQogDp8ZntirRGeq+WH
+b2uVg7jMNk+Yugiv9XZ85cmXQ56jpX59iDHO0gr0eGw5CAqj2yKYVBwpGuru
+sJJDWF54D22CigOa9l11EMuA3FqqFTaYYLbJPcuRchmMi31ONWXS8EhAvwc/
+SQZ3vd2tuiMW418ae5fe9JCBiMelx7iYYm4ox3L9l2nIDIkM0FOZYpmSp03g
+T8OPw8Xlmd1m+Dc16/B+i2koWHVL1B2wBMd/7pOtK5+C8425BQH1S3Ciz6xR
+s9sU7LAKKX1pT8c5h3go44kUtiS2HaBn0/GjuEF/j0ApCFdw7LtUdLzsfbPR
+7cFJsG++nx90wBzz4GeZImoSBC5NTv0N5tg0Krc7RSOBaKV+X4cTwq9lvm5/
+pEmA81DBzOYjXBbf0CCmSyA+nT3vfwXhnUyjCbWZBLjs2re0awiTAzvNFplK
+IEvFvSzIR5i16cNhJ6oEKjdo524UITxprE85oSsB7fOFN2UVCK+7z/IlFQQI
++mm5LW0IN34YbKMOElBYkhB7qQPhuOvWMqt+AkqSe3y3dyJszoq2cOkloG6p
+YLazB+HIak3szi4ChsNQ7MBrhA3PL6fmtRDgMG7pOzaOcNCKI4HWjwlwqz1j
+c0+MsObVg+Q1NQRs5A1pj04gLLwovw0PCQh0KKr+l0BYQaRLI0QEJB1n2sjl
+CF+vL71cVkpAqtcF7SMlwt4JU3W/lxDAWzw2mKxC+BNz/Uh7MQEFVSU5JImw
+Z1a7q6SIgLtp+jFPZhEe3UTfP3+LgIrgoz6p8whnT4emLS4koNau1XrzV4TX
+ltx9YFNAQINypXZhAeGhvZJe13wC/gN1aV2I
+               "]]},
+             Annotation[#, "Charting`Private`Tag$79934#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 0.8308333473639471},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0], 
+             PointSize[0.02], 
+             PointBox[{{0., 1.54}, {2., 1.2}, {4., 0.99}}]}, {
+             RGBColor[0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0], 
+             PointSize[0.005], 
+             PointBox[{{0., 1.54}, {2., 1.2}, {4., 0.99}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 0.982\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          ImagePadding->{{40.544921875, 0.5}, {37.26953125, 0.5}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Sodium nitrite\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{All, All},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{
+             Scaled[0.02], 
+             Scaled[0.02]}, {
+             Scaled[0.05], 
+             Scaled[0.05]}},
+          Ticks->{Automatic, Automatic}], {630, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[0, 0, 1], Thickness[0.003], Opacity[1.], 
+              LineBox[CompressedData["
+1:eJwVjnk41HkAxsfMYMZ0GOGZkGu2S8JWksL3JbFp8DjWdlByVmvHrXH95snd
+g6Qi7W6ZYdGz1SatI0XXtJ2bUmvdLaWlIlc6+I21f7zP+8fneZ/PaxIU6R3K
+ZDAY7nP5v9+Oz4hcwgYc/rXpGvp7KQ8xFYlrneW3SX3OR3HHVzxIeMNhi+XP
+SFbHoslOIQ/JzZUMtvwlWZYsUvaY8ECfTHf/LJsgIc1NWq+W8NDMHp+YkLHQ
+7yzbNKrDg+Gmla5jskXo9grN56jx4NGmGH0vE6L1+/dWtq81gMJ03pa4dYip
+KciAXAP8Cb/qwmAHaN43eNcRqAGHqxKvVE1nHI9KaKwz0YAstvlC9/ateGjm
+X2Tbw0Xv1p7WaRcPMGotMjxOcxG6LWk4qMULb73ypdztXDg2fmS3iH1xVdrQ
+p67NBa+hj6Hf54ec1CfflTznYNWYq9guZwd4R+I6HxdwsPGK3g17pj9yxarR
+Jz05uLh1z9I/Indj9EWQuFyTgyYNTSX/cCB4ISLJt4/UoddQ2VV9ey9MG0yL
+T+WpwzR9OrpREIxRw8wb6a7q2L2Geyw7PARlur97XWKpg7/S/RdFaSi8elum
+ohRqiLT3jIwYD0Ndw8GzbVI1OJ/KNs+w2AdB8DzxY6IGhRZVppa5H1bGqxHx
+RRUHo1aXif46AHOxXqJ7nSrkOotOMBdGYFne5J0bCXO8vc5BGPwD2q7tNOr8
+WhWK/qNdl2VipDVdyMscY8P5qZDJaY+EtuefgXE1bDSIG6NenojCrgmJI1fM
+xmEB1ZG0Jhql4fz1VhZsWD2VnXHticapEWsbepCF0enSFVMZMZCoLS+dX8FC
+hFvjOX+TWPiOsPWrQ1loqlqb++lBLF4Piss/GbPwYMW9YNH+OMRdvkOe/cPE
+mL6tSho7HoMLhpzG5EwML+FOvzsfD63UEu/aACYqNk8OL3RLwIar6xJ4hkys
+kTjY75tMgM68gEr1DhUkPynPlBw/iBHzmDdFJSro+XHg2AFLCc73+hSF71CB
+TlzWTGG7BMblN0UvtFXAjXbaE52QiGM2BoKh5wy0pgQYZpkkoaGXOVpSwEDt
+F9+ylPtJUOjWWeRtY8Dn53CjVWHJeGTod4g/j4G7oo5PCzRToBvLvpl4ZJZM
+GYc9/PW3FOR/s75qcv4sIeEtQSvcUtFCVHZNFSjJ7msn/brGU5Hs/2q5s7qS
+bLBO3uxylILpYrlBXTZN2pKdzFSPU/BzuJufkkmT+FtcvqKIQk7wsNIpnSY1
+niW9jj9RGLlg29dC0cT8QG2ifSWFRqfWiqF4mhiXvr+47hoFnwiW5ZIQmnC5
+IQbCQQpp10MdM0CTs56rWP1vKNS+yq1xc6CJS/H4kGyYwiC3Rsi3o0mG8FC9
+4QQFd1+l6hkbmijtz3jrKSnoDRU/qLegyXhMew5fW4oarXs+bw1ocvRKaeQT
+XSkGbEYUl/RoYskI9ytYLIUgQHu9RECTiPwPwvlGUlBVgQJVbZq8rtK6zjGT
+ws3uc7chb8430lFx11yK1L1GHgMcmgit5XlZllJUZ225fk6NJoG3LHeyraXQ
+fVoo38Cc+8P5iNs2c/upeq3Z2Rly2rN5edpGKVL0e9Pv0DPErjhzgaO9FBfB
+/pA7PUM6u0UfZokU/aFmYd6fZ8h/wD0mkg==
+               "]]},
+             Annotation[#, "Charting`Private`Tag$80228#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 1.8108695975155316`},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[0, 0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666]], 
+             PointSize[0.02], 
+             PointBox[{{50., 3.25}, {100., 3.}, {200., 2.85}, {400., 2.1}}]}, {
+             RGBColor[0, 0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666]], 
+             PointSize[0.005], 
+             PointBox[{{50., 3.25}, {100., 3.}, {200., 2.85}, {400., 2.1}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 0.980\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          
+          ImagePadding->{{40.544921875, 2.8792322560978505`}, {37.26953125, 
+           0.5}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Vitamin E\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{All, All},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{
+             Scaled[0.02], 
+             Scaled[0.02]}, {
+             Scaled[0.05], 
+             Scaled[0.05]}},
+          Ticks->{Automatic, Automatic}], {1050, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{
+          Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+      ImageSize->Full,
+      PlotRange->{{0, 1260}, {-259.5742752749558, 0}},
+      PlotRangePadding->{6, 5}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.9397966979118032`*^9, 3.939796836964204*^9, 3.939796910624047*^9, 
+   3.9397969956674733`*^9, 3.939797033116104*^9, 3.9397970713943434`*^9, 
+   3.93979725503722*^9, 3.9397973980093145`*^9, {3.9397980533400683`*^9, 
+   3.9397980677970047`*^9}, {3.9397982360284204`*^9, 
+   3.9397982640986094`*^9}, {3.9397983279915857`*^9, 3.939798352391513*^9}, 
+   3.9397984835535474`*^9, 3.939798840695491*^9, 3.9397989448156013`*^9, {
+   3.9397989957149353`*^9, 3.9397990132342663`*^9}, 3.939801653889537*^9, 
+   3.9398019873228335`*^9, 3.9398025644411774`*^9},
+ CellLabel->
+  "Out[359]=",ExpressionUUID->"f32c3527-6b6a-4e18-944b-ace7a6d37dad"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Salmonella", "-", 
+    RowBox[{"Sodium", " ", "benzoate"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"data4", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.0", ",", "3.39"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"100.0", ",", "3.0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"200.0", ",", "2.71"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"300.0", ",", "2.47"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"400.0", ",", "2.32"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model4", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data4", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r24", "=", 
+     RowBox[{"model4", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Salmonella", "-", 
+     RowBox[{"Sodium", " ", "nitrite"}]}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"data5", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"25.0", ",", "4.03"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"50.0", ",", "3.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"75.0", ",", "2.76"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"100.0", ",", "1.27"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"200.0", ",", "0.72"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"300.0", ",", "0.54"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model5", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data5", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r25", "=", 
+     RowBox[{"model5", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Salmonella", "-", 
+     RowBox[{"Vitamin", " ", "E"}]}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"data6", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1019.0", ",", "14.4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1024.0", ",", "13.9"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1069.0", ",", "10.1"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model6", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data6", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r26", "=", 
+     RowBox[{"model6", "[", "\"\<RSquared\>\"", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9322447240271063`*^9, 3.93224472658687*^9}, {
+  3.939799087875168*^9, 3.9397991454958405`*^9}, {3.93980231704242*^9, 
+  3.9398023446176915`*^9}},
+ CellLabel->
+  "In[360]:=",ExpressionUUID->"293d406d-8733-47d8-bdf9-22bc75431618"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Create", " ", "three", " ", "subplots"}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"plot4", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model4", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "500"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Red", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data4", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Red", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data4", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r24", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Sodium benzoate\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "500"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "4"}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Set", " ", "minimum", " ", "y"}], "-", 
+         RowBox[{"axis", " ", "value", " ", "to", " ", "0"}]}], "*)"}], 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"plot5", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model5", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "400"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Green", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Green", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data5", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Green", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data5", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r25", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Sodium nitrite\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "400"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "5"}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Set", " ", "minimum", " ", "y"}], "-", 
+         RowBox[{"axis", " ", "value", " ", "to", " ", "0"}]}], "*)"}], 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"plot6", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model6", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "2000"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Blue", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data6", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Blue", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data6", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r26", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Vitamin E\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "2000"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{
+             RowBox[{"Max", "[", 
+              RowBox[{"data6", "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], "*", 
+             "1.1"}]}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+        "Ensure", " ", "all", " ", "points", " ", "are", " ", "visible", " ", 
+         "with", " ", "some", " ", "padding"}], "*)"}], 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Create", " ", "main", " ", "title"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"title", "=", 
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<SALMONELLA\>\"", ",", "Bold", ",", "16"}], "]"}]}], ";"}], 
+   "  ", 
+   RowBox[{"(*", 
+    RowBox[{"Bold", ",", 
+     RowBox[{"font", " ", "size", " ", "16"}]}], "*)"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Combine", " ", "title", " ", "and", " ", "plots", " ", "using", " ", 
+     "Column"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Column", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Text", "[", "title", "]"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Add", " ", "title"}], "*)"}], 
+       RowBox[{"GraphicsRow", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"plot4", ",", "plot5", ",", "plot6"}], "}"}], ",", 
+         RowBox[{"ImageSize", "->", "Full"}], ",", 
+         RowBox[{"Spacings", "->", "20"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"Alignment", "->", "Center"}]}], "  ", 
+    RowBox[{"(*", 
+     RowBox[{"Center", " ", "alignment"}], "*)"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.939796691044942*^9, {3.9397967642921963`*^9, 3.939796764679963*^9}, {
+   3.939796834055331*^9, 3.9397968355680523`*^9}, {3.939796887612073*^9, 
+   3.9397969086651225`*^9}, {3.9397969525844755`*^9, 
+   3.9397970310707035`*^9}, {3.9397970690916405`*^9, 
+   3.9397970695681086`*^9}, {3.9397972495292835`*^9, 3.939797253476447*^9}, {
+   3.939797395111492*^9, 3.9397973965267277`*^9}, {3.9397979507925477`*^9, 
+   3.939797964395543*^9}, {3.9397979992036314`*^9, 3.93979803456723*^9}, 
+   3.939798152034486*^9, {3.9397982015532236`*^9, 3.939798262603424*^9}, {
+   3.9397983084462624`*^9, 3.939798336705991*^9}, {3.939798478916562*^9, 
+   3.9397984813371077`*^9}, {3.939798829343526*^9, 3.9397988389496503`*^9}, {
+   3.939798991393549*^9, 3.939798993999193*^9}, {3.9397991825288*^9, 
+   3.9397992221802583`*^9}, {3.939799256945839*^9, 3.9397992652633357`*^9}, {
+   3.9397993280796146`*^9, 3.939799420717579*^9}, {3.939799515488143*^9, 
+   3.9397995683797216`*^9}, {3.9397996346390357`*^9, 3.939799635001622*^9}, {
+   3.939799968359577*^9, 3.939799969838407*^9}, {3.9398000108138885`*^9, 
+   3.9398000115910697`*^9}, {3.939800063688942*^9, 3.9398000653014174`*^9}, {
+   3.939801779646626*^9, 3.939801820821676*^9}, {3.9398018607639437`*^9, 
+   3.939801888440708*^9}, 3.939802032869571*^9, 3.9398024076143274`*^9},
+ CellLabel->
+  "In[369]:=",ExpressionUUID->"9ed1de45-a568-49d8-9159-7371570045aa"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     InterpretationBox[Cell[BoxData[
+       FormBox[
+        StyleBox["\<\"SALMONELLA\"\>",
+         StripOnInput->False,
+         FontSize->16,
+         FontWeight->Bold], TextForm]], "InlineText",ExpressionUUID->
+       "74b1def8-e936-4b76-91a4-642d78711bad"],
+      Text[
+       Style["SALMONELLA", Bold, 16]]]},
+    {
+     GraphicsBox[{{}, {InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[1, 0, 0], Thickness[0.003], Opacity[1.], 
+              LineBox[CompressedData["
+1:eJwVjms0lAkAhr+5YL5RMbVFaoVRKcRS7UYz3+uyRCMqR6vcQqidXMO4fdMm
+0qrcutoyM7ltq6SkhORENx1S0bqk7XJq17ZTMaFi+9b+eM57nl/vYxoas2Eb
+myAIryn+3zcjkxK3iFdi1KT+/onmI748xd5V1UqtfL3SWjjlMl11xFzVI8pq
+vmaPJIOPtOYKgqt6SRnm/LhMkcbHv8cyvT4pNdT74IAsVxkfzdwRjUbJgUpP
+bJ8Xx4ex4xL3YeUssGNYeebhfKx73Pb+nVKINuscN28PPlCQqfv9ruUYrIs2
+NNXjQ6DxqykIE2PcfKe6o5eEuFG2PkPfFcXfzM3PLSWhTGg+9+QHD3StKTly
+czuJpx6DDyfc1oHn7ljSb09i29pUdej99ej2vkBKP/Hg1DDOvR/tC4uxbucZ
+LTzo1j8n5j33A52pL8/9mQfLYffo1Tn+iJq30DjLhweHq0YtInYAfIvXt/gb
+8XDeI3jhrZgg3LlsaUu90sE1vv4Xwf4QdA0+ZauqdGBUXzFQ07oV/W/O9A4m
+6sAscyKuwTAMMu46wTFHHQTZkYX7IsNxqkFhsJWtA8ESr7I2xTbc3ESaando
+I0bkHSMdicBuZu3BxUXacD2xz2rvsiiID1VMCgO10TaTPq2dtR15i/s7T5pp
+IznW+rSkZweighqjFw1pQTV71mG2nhSu6ZcEubVaSO69LBaG7URtWbaBNEUL
+bS/yB2qV0TC/FGti4aIF1wdCNq83BsZbeeMfpmuhProh9uXhWFQZptiKu7nY
+b0j3pdrFweEKa2doCRe2D5Ql7oNxCAwJm8YJ5+L9hMJibG88eJXxKZeWciH1
+bKgKME1AXfeJIYxycK3SPvdjewLGphU3eTRy0G5xJ0yyfRdWWV0stM7iYHje
+KtYebiK4Q8krzXw4UH9NTvxzNhGhNXNERXM4KHf5oNbzTEJrUIfbH8/YsJOJ
+RVEfklBvEFhbWcFGWldplqwoGdVXuMK1sWwMFr8q3GEjw7JR/xDGgY3Zu7In
+C3plgCiHsGWxQcY5B8clpcBX2lnqeI+Fh+mBxtmmqfi3XH2mNZ+Fus++p9Pv
+psI6oyEjYBMLG09GLrCMSEOIo8K3y5SF25K+jzP007GIG3io5U8CYyYR936r
+TsfbWrt7uRcIUJH3Qy08MyBmXe6JTCcQ1HTMb2AkA2b+M11anAl8tyLNxS2f
+Bnk8u1YzjcDjNOelWkU0fMzXpHKmPPEGKWg7QuN4Dek0S5fARe/jT51+obHo
+7oFOO5KA1Y66FFEFDdfPhUNxWgRMFO/OL2+iMVkvpp5NMBRJhs8X/kXjtVOs
+Qd8gQ/3qbcl58TeNxM2aso8DDOV2dGRIqabBTUiyM+xnqL3Cn64Ya2iYlKV7
+bXrMUF9EJRuMvtDYor0/s6eToUbie3MEX8nR1a569+A6Q+VfVcR0zZEj+KV5
+xvA1hrIhIv3y5srxdqKSL2hiKOnBUeH0BXLoWlcv9KlnqNeVM6/zlsrhltew
+pbNm6u9tX/ltKzl6KkVD6mqGEq5QHci2kSOspSVp+jmGCrlhs5m7Qo7dw7cK
+JGemenjjaP1WDj2+5wJpJUOd8m5evMdBjhKzjrO55Qy1+mjWDCeRHFaOPg5V
+pQzV/0QyylByNG58dLtdxVD/AXihGQI=
+               "]]},
+             Annotation[#, "Charting`Private`Tag$81375#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 0},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0, 0], 
+             PointSize[0.02], 
+             
+             PointBox[{{0., 3.39}, {100., 3.}, {200., 2.71}, {300., 2.47}, {
+              400., 2.32}}]}, {
+             RGBColor[
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0, 0], 
+             PointSize[0.005], 
+             
+             PointBox[{{0., 3.39}, {100., 3.}, {200., 2.71}, {300., 2.47}, {
+              400., 2.32}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 0.972\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          
+          ImagePadding->{{30.537109375, 10.0107421875}, {37.26953125, 
+           6.703125}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Sodium benzoate\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{{0., 500.}, {0., 4.}},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{0, 0}, {0, 0}},
+          Ticks->{Automatic, Automatic}], {210, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[0, 1, 0], Thickness[0.003], Opacity[1.], 
+              LineBox[CompressedData["
+1:eJwB0QIu/SFib1JlAgAAACwAAAACAAAAIo/9o54e4T5f4BhjRsUMQLcIKR9t
+aL8/S0hhlj3CDEDBeK6kKGjPPzawqck0vwxAxjBxZwZo3z8NgDowI7kMQMiM
+0kj1Z+8/uh9c/f+sDEDJOoO57Gf/PxZfn5e5lAxAypHbcehnD0DM3SXMLGQM
+QEq9B07mZx9AOtsyNRMDDEDNDTYJBF0wQC0erUGKMAtAQo9FwKdPOEA35Qb3
+9GsKQGUv+g0xDUBABMcV2zqrCUBNKWXxFkdEQOrwhPkq2ghAstR9dck4SEDn
+ntPADhcIQDsSKq8Ef0xA/JSCwpxDB0Bn+5KdpVhQQNSl5vIFdAZAb8bnM69N
+UkDEOirMYrIFQIpaBiX9bFRAyxfO32ngBEBjx3tmMWhWQOp4UZxkHARAwQcZ
+UWtZWEDN9ImHOlwDQDERgJbpdFpAx7girbqLAkBg8z0sTmxcQNkAm3suyQFA
+oZ7FHPeNXkACkXOETPYAQLOOOtvSUmBA8DsBvEUnAEB0uj1QnUxhQOrV3Dhl
+zP4/v8ql8olbYkAjxHdukyn9P2lHOb1pWGNAjLrR9aii+z+cqDG1a2pkQCZB
+7PES+/k/kfO9gXB3ZUBG/XBLM1v4P+aqdXZocmZAlMG09jrX9j/ERpKYgoJn
+QBIWuRaXMvU/AU/a4o+AaEDAcnyI2qnzPwBBtgGgeWlA9ASqV9Qo8j+IF/dN
+0odqQFgnmJsih/A/cFpjwveDa0DYo4pisALuP+GBNGQ/lWxAXBlmd8S16j8U
+k5naiaFtQPD5FUdFeOc/phAqecebbkDg6kO6lHLkP8FyH0Unq29ANPzyFo0r
+4T+eIKAcPVRwQMg7QC6oONw/vXz6AGjQcEA4VUOkDznWPyFLB/wjV3FA0F6R
+2pFtzz+0zymL2dRxQLBUlPo+SMM/jMb+MCBdckAAMG8CP3aoP97VX8hrnHJA
+AAAAAAAAAAA2uz1x
+               "]]},
+             Annotation[#, "Charting`Private`Tag$81669#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 0},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0], 
+             PointSize[0.02], 
+             
+             PointBox[{{25., 4.03}, {50., 3.2}, {75., 2.76}, {100., 1.27}, {
+              200., 0.72}, {300., 0.54}}]}, {
+             RGBColor[0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0], 
+             PointSize[0.005], 
+             
+             PointBox[{{25., 4.03}, {50., 3.2}, {75., 2.76}, {100., 1.27}, {
+              200., 0.72}, {300., 0.54}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 0.772\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          
+          ImagePadding->{{30.537109375, 10.0107421875}, {37.26953125, 
+           6.703125}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Sodium nitrite\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{{0., 400.}, {0., 5.}},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{0, 0}, {0, 0}},
+          Ticks->{Automatic, Automatic}], {630, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[0, 0, 1], Thickness[0.003], Opacity[1.], 
+              LineBox[{{1001.7297297297312`, 15.840000000000002`}, {
+               1019.003910331558, 14.365050733228571`}, {1061.2221097116544`, 
+               10.760266016927886`}, {1100.619970293281, 
+               7.3962948441888585`}, {1143.31994105603, 3.750374263677074}, {
+               1185.24038934684, 0.17101290961547022`}, {1187.2432432432372`, 
+               0.}}]},
+             Annotation[#, "Charting`Private`Tag$81963#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 0},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[0, 0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666]], 
+             PointSize[0.02], 
+             PointBox[{{1019., 14.4}, {1024., 13.9}, {1069., 10.1}}]}, {
+             RGBColor[0, 0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666]], 
+             PointSize[0.005], 
+             PointBox[{{1019., 14.4}, {1024., 13.9}, {1069., 10.1}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 1.000\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          ImagePadding->{{37.2109375, 13.34765625}, {37.26953125, 6.703125}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Vitamin E\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{{0., 2000.}, {0., 15.840000000000002`}},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{0, 0}, {0, 0}},
+          Ticks->{Automatic, Automatic}], {1050, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{
+          Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+      ImageSize->Full,
+      PlotRange->{{0, 1260}, {-259.5742752749558, 0}},
+      PlotRangePadding->{6, 5}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{{3.939800048119157*^9, 3.9398000665630217`*^9}, 
+   3.939801661137746*^9, 3.9398017813841686`*^9, 3.939801823260554*^9, {
+   3.9398018632522345`*^9, 3.9398018895684843`*^9}, 3.9398020346537495`*^9, 
+   3.93980265232137*^9},
+ CellLabel->
+  "Out[373]=",ExpressionUUID->"cd496961-c93c-4602-ac0e-bd0045de73b6"]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{
+  3.9322451554735217`*^9},ExpressionUUID->"868ec4f6-c15b-4e02-8f85-\
+fb1000c7da00"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Bacillus", " ", "subtilis"}], "-", 
+    RowBox[{"Sodium", " ", "benzoate"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"data7", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.0", ",", "3.12"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"100.0", ",", "2.9"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"200.0", ",", "2.75"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"300.0", ",", "2.66"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"400.0", ",", "2.49"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model7", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data7", ",", 
+       RowBox[{"{", "x", "}"}], ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r27", "=", 
+     RowBox[{"model7", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Bacillus", " ", "subtilis"}], "-", 
+     RowBox[{"Sodium", " ", "bisulfite"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"data8", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.781", ",", "15.0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.563", ",", "10.7"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3.125", ",", "8.76"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"6.25", ",", "7.53"}], "}"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"model8", "=", 
+     RowBox[{"LinearModelFit", "[", 
+      RowBox[{"data8", ",", 
+       RowBox[{"{", "x", "}"}], ",", "x"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r28", "=", 
+     RowBox[{"model8", "[", "\"\<RSquared\>\"", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9230568066270323`*^9, 3.923056814993637*^9}, {
+   3.9230568602835655`*^9, 3.923056881917512*^9}, {3.923057060701332*^9, 
+   3.9230570995055933`*^9}, 3.9231242202008486`*^9, 3.9231244425195713`*^9, {
+   3.93980020045061*^9, 3.939800225201005*^9}, {3.939802464366111*^9, 
+   3.939802468660698*^9}},
+ CellLabel->
+  "In[374]:=",ExpressionUUID->"a414b09a-f4bc-49d9-b6ed-25818f06cbd4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Create", " ", "the", " ", "first", " ", "two", " ", "subplots"}], 
+   "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"plot7", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model7", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "500"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Red", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data7", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Red", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data7", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r27", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Sodium benzoate\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "500"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "Automatic"}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Set", " ", "minimum", " ", "y"}], "-", 
+         RowBox[{"axis", " ", "value", " ", "to", " ", "0"}]}], "*)"}], 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"plot8", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"model8", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
+          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Green", ",", 
+          RowBox[{"Thickness", "[", "0.003", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Green", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", "data8", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", "Green", "]"}], ",", 
+            RowBox[{"PointSize", "[", "0.005", "]"}], ",", 
+            RowBox[{"Point", "[", "data8", "]"}]}], "}"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"\"\<R\.b2 = \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"r28", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], "]"}]}], ",", 
+              "12"}], "]"}], ",", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.85", ",", "0.85"}], "}"}], "]"}]}], "]"}]}], "}"}]}],
+        ",", 
+       RowBox[{"PlotLabel", "->", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Sodium bisulfite\>\"", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "10"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "16"}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Set", " ", "minimum", " ", "y"}], "-", 
+         RowBox[{"axis", " ", "value", " ", "to", " ", "0"}]}], "*)"}], 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameStyle", "->", 
+        RowBox[{"GrayLevel", "[", "0.3", "]"}]}], ",", 
+       RowBox[{"GridLines", "->", "Automatic"}], ",", 
+       RowBox[{"GridLinesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{
+          RowBox[{"GrayLevel", "[", "0.8", "]"}], ",", "Dashed"}], "]"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Create", " ", "an", " ", "empty", " ", "subplot", " ", "with", " ", 
+     "the", " ", "same", " ", "style", " ", "and", " ", "size", " ", "as", 
+     " ", "others"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"emptyPlot", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"ImageSize", "->", "400"}], ",", 
+       RowBox[{"PlotStyle", "->", "None"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Hide", " ", "line"}], "*)"}], 
+       RowBox[{"Axes", "->", "False"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Hide", " ", "axes"}], "*)"}], 
+       RowBox[{"Frame", "->", "False"}]}], "      ", 
+      RowBox[{"(*", 
+       RowBox[{"Hide", " ", "frame"}], "*)"}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Create", " ", "main", " ", "title"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"title", "=", 
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<BACILLUS SUBTILIS\>\"", ",", "Bold", ",", "16"}], "]"}]}], 
+    ";"}], "  ", 
+   RowBox[{"(*", 
+    RowBox[{"Bold", ",", 
+     RowBox[{"font", " ", "size", " ", "16"}]}], "*)"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Use", " ", "Column", " ", "to", " ", "combine", " ", "title", " ", "and",
+      " ", "plots"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Column", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Text", "[", "title", "]"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Add", " ", "title"}], "*)"}], 
+       RowBox[{"GraphicsRow", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"plot7", ",", "plot8", ",", "emptyPlot"}], "}"}], ",", 
+         RowBox[{"ImageSize", "->", "Full"}], ",", 
+         RowBox[{"Spacings", "->", "20"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"Alignment", "->", "Center"}]}], "  ", 
+    RowBox[{"(*", 
+     RowBox[{"Center", " ", "alignment"}], "*)"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.939796691044942*^9, {3.9397967642921963`*^9, 3.939796764679963*^9}, {
+   3.939796834055331*^9, 3.9397968355680523`*^9}, {3.939796887612073*^9, 
+   3.9397969086651225`*^9}, {3.9397969525844755`*^9, 
+   3.9397970310707035`*^9}, {3.9397970690916405`*^9, 
+   3.9397970695681086`*^9}, {3.9397972495292835`*^9, 3.939797253476447*^9}, {
+   3.939797395111492*^9, 3.9397973965267277`*^9}, {3.9397979507925477`*^9, 
+   3.939797964395543*^9}, {3.9397979992036314`*^9, 3.93979803456723*^9}, 
+   3.939798152034486*^9, {3.9397982015532236`*^9, 3.939798262603424*^9}, {
+   3.9397983084462624`*^9, 3.939798336705991*^9}, {3.939798478916562*^9, 
+   3.9397984813371077`*^9}, {3.939798829343526*^9, 3.9397988389496503`*^9}, {
+   3.939798991393549*^9, 3.939798993999193*^9}, {3.9397991825288*^9, 
+   3.9397992221802583`*^9}, {3.939799256945839*^9, 3.9397992652633357`*^9}, {
+   3.9397993280796146`*^9, 3.939799420717579*^9}, {3.939799515488143*^9, 
+   3.9397995683797216`*^9}, {3.9397996346390357`*^9, 3.939799635001622*^9}, {
+   3.939799968359577*^9, 3.939799969838407*^9}, {3.9398000108138885`*^9, 
+   3.9398000115910697`*^9}, {3.939800063688942*^9, 3.9398000653014174`*^9}, {
+   3.939800274338174*^9, 3.9398004169868865`*^9}, {3.9398008949971724`*^9, 
+   3.93980089990615*^9}, {3.939800956056691*^9, 3.939800965163802*^9}, {
+   3.93980101515447*^9, 3.9398010433460474`*^9}, {3.939801170116949*^9, 
+   3.939801212123098*^9}, 3.9398012947802377`*^9, {3.9398014101431017`*^9, 
+   3.9398014106976795`*^9}, {3.9398015764159813`*^9, 3.9398015765613127`*^9}, 
+   3.939802078643034*^9, 3.939802528971608*^9},
+ CellLabel->
+  "In[380]:=",ExpressionUUID->"df69b347-b2c5-4301-9f6c-717ffc39c963"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     InterpretationBox[Cell[BoxData[
+       FormBox[
+        StyleBox["\<\"BACILLUS SUBTILIS\"\>",
+         StripOnInput->False,
+         FontSize->16,
+         FontWeight->Bold], TextForm]], "InlineText",ExpressionUUID->
+       "9cb31d59-9585-4bdc-8d72-4b4187a624a1"],
+      Text[
+       Style["BACILLUS SUBTILIS", Bold, 16]]]},
+    {
+     GraphicsBox[{{}, {InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[1, 0, 0], Thickness[0.003], Opacity[1.], 
+              LineBox[CompressedData["
+1:eJwVzns0lAkABXD7zTcz36RE4ag2ZScnr1JSqzTmeuSVRzWt05PyjGQMYhjm
+K8+0SYgoZbxKpUibNKIHFaqVnHVGKGqzW7Ix0otlZ/+4557fX/ca+Aq3BBBq
+amruqvzfQ8pJN8fAtzb+03rmVCWFiPLYVQ7FTfwXzu9zMy9TEKsPB84r7uRv
+zq6f1FVZ0nhejSx+w+cZercZXqLw76kk92+yMb7OxtIA+woKjaRybEzGwMO8
+ZYXSMgr61sZOo7K5MFpuxxkvpODR1TzyUcbF0K79bwYyKCArSX1DlCVCmXo+
+FgcoaI15VWf52UDip7XzigcFm3rx5gRNB2QJrhXcW0FBFtl4pXebC4qPXy5y
+06Tw0qXv+YSjB0ArDQklGwEb44Z92zdDIc+JXN7Bhq38C9kethUxR3oYn6rZ
+UK8bUFsw4IVy9XDtP7PZMB11Clt/ZDuedHt/cI1gY92t+Xd5xC4k7j7t0Ctg
+o8rFx/Ch0Bv8yPhXrDVsNMzQnNJK34PxzjrbCh025ted76lu2ot1722XRH1h
+4aekCZFczw+xGw1/r+1iwduCk50W5I87NlXy7FoWtIzdy5qLApDzV8rSgnwW
+hDxPYagyEHt7anfqillwKEgzS16+D43JlpqN21loniMtYaUEQzt25rFeKxZi
+wpeVuP0RAtH0UdeTeiwU68w9ScwOxW5rr/To70zEKGptuH4HYHdfktnezUTz
+6xM912VhqJ0a1hHUM+HQwSUohRArnrJeCc8yURcmD39zMhzlg7FCRgIT6XrS
+7jgLESpurD10z5uJFR2yc059IpS3C7Z95jExMlFk9Dk5Ahcl2pHNC5kIdZVf
+3mUQCes+A42GaRINF1b9+rUtEo/S08PNXpFoM2rxcwuOwsAQT/DwLonRBWt/
+SCQPgtGfL/5WQmJ4IWfiQ+VB6C/yCChNJFFu/2l4tms0WuZueh7jT8JCbMPb
+9yka+wWVrCZ7EpJnpSninBgUOv9Sb2VIou/02+wQczG62stqnNgkdKJSJ7MU
+YlAlHqKngwxwRHY+ouhYtBpvqE5oYeB5/G79VIM4JE/m1pZdYODG960l8a1x
+cNybMe2fxoCgMGiRaaAEeZKOFs9gBh65dX/V0IxHf79w+zVnBj4vDnx86Wo8
+6iZ2hPBMGOAHtfsauSYgv+JDg+9MBrxvn/LqUSZAJFMopoYIWK2W2DuekKLb
+XSvqwVMCXRI7E2aOFCM9s2gblQ/e52g150rBCplx9OYTAjWe+S9tz0hhmcqQ
+XXxMwCzkRizvvBSZjeOPM1oJLC76WGV5WwpH8xdcrwcEOBz/H7l/S1GjWdo5
+eJtAhacp4/V7KVrPFb30UdkxT/lONixFv1nhO0U9gWTu4Zv6Y1JouOROt8kJ
+TPHObZk/JUXw4TTTqjoCygjFES1tGouV+5NifiNw4laR8JkujTWH9h0fuU7A
+XC3IK3MeDXeNgIJglUMzxrmzFtGQmHhX7awhMHhhzh3KhEaX76YefrVq75/u
+8kdmNIZH3AbrqghwVxcfSzWnQdIuoytV3nPffAe5msbKM3bsJVdVf6gvaPqZ
+hrMxf87ZKwTOejYuTVxHw+em9UJdldfnpWjY8mhEb7Ayyqwk8KLXbXyaT+NY
+p+UqSuX/ACWuGT4=
+               "]]},
+             Annotation[#, "Charting`Private`Tag$83101#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 0},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0, 0], 
+             PointSize[0.02], 
+             
+             PointBox[{{0., 3.12}, {100., 2.9}, {200., 2.75}, {300., 2.66}, {
+              400., 2.49}}]}, {
+             RGBColor[
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0, 0], 
+             PointSize[0.005], 
+             
+             PointBox[{{0., 3.12}, {100., 2.9}, {200., 2.75}, {300., 2.66}, {
+              400., 2.49}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 0.981\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          
+          ImagePadding->{{40.544921875, 10.0107421875}, {37.26953125, 
+           0.5000000000000284}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Sodium benzoate\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{{0., 500.}, {0., 3.083999984693877}},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{0, 0}, {0, 
+             Scaled[0.05]}},
+          Ticks->{Automatic, Automatic}], {210, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[{{{}, {}, 
+            TagBox[
+             {RGBColor[0, 1, 0], Thickness[0.003], Opacity[1.], 
+              LineBox[CompressedData["
+1:eJwVkms0lAkAhukbskxlGBqXmfnGN4yZUZvd9mxX3yvp5nJCZFW7jMIqicwm
+lBJb0oQ4kUtS0coSnUm0ZSW5RNOWqFCsaxc2ka2RsvbHe56fzznPeQWyUPcd
+szQ0NFxm9j9zD8q0bbcn2VV6PGNerZSirpV03kz+TCdXFaX1V0gxXV99hCT3
+0wH8KNP516TIrVHwtchEmv3G1DqmXIpdK+UhH/hn6NC4rQ5rLkvR+ikofZRf
+RFuVd+/vyJZidmevaIRfRafNHRycFStF/r28sDf8JjqkaazGw1GK0iuJnbsW
+dtD+FZStfaMEgfTDM8PhfTQtWBQe6SHB7gFxn7L0Ff3L1XbRZI8YuoJ4UfeS
+UXrkRvqZhu1inNRvluT7jtNO9gu7XoxaQ9a56U+i5V/6lV13h/1ea4TdjZeF
+iibpXpnE9e0HEcr3MD046z/TtQy3U4PxIuRH73y9aLMGernJp8Q6IsTlTbm9
+H9bES+Vv/hVpVtBo7cHNKALrw7cWKQRWsIoIiNwk0cKbQlFxWYEl+icyvPRu
+aWPvD6oD3G8ssWEg+MCpMB2sOHKC2a4UwrU/Rcrj6cK3tX/es6VCvL4jO9RY
+oofgfE6/ZQOFhax2rsNPc6Ac9I+o3kBBl57w6xqfi8Gi423n2i2wdsTng4Wn
+Prz7G8dU3hZ4Wrtd08eGBaFjfvza5wJcO1b3IznBwlPKc+irYAECtOQ9KpUB
+mveT2pwREv7h0deYWYYodGmYCI0k8XWgVOXsx0bHWh0fA20SDwxs9ORLjZAX
+fvu9BpuPP0rjsm0IY3i7iZ/sseEhWlOyseW5MVJ5NbaRtlzodkWt262cj9gl
+SXL2cnMMFArS82I4WOY6Z8tqTzOkW5swqjxNsM+9ulJvqylSsgIa/EhTHHK3
+qgzYawKf9G0q5pAp6Lzac17JHHxcXaDOqzZDbIdC80XGfPQNrIqsPWqO4yx9
+hrrMGOdX2prd9+OC8/3tg8UVRihJkLMCF/AQ4S3OftfCxlFPfydigof4+rvn
+WoYM8V1XftHR+3ywqVQe/dYAmeLskvtOJMKjDe0cZxsgtkaR6VRFwr22rq1X
+jwUXM8+Ce0IBBj0vexkZ6cN+d8MWVqIA6fcUYxXb5iLPXCZsmRDAu15oHR7M
+hPDOpdOuWyxQWSXO35Spi5QFtZJH1RaIX5Mx7PtABwHjjIdNEgrOZTLrnG5t
+yMrHyMRkCkpWzqUv+lrYFecxtSGVwstU4dSwjhbkHsonzDQKpEHJxk4NLRyb
+kJ9MOU3hhEG1+vooA6VL1Z8ycin4GvY4hf3FgPr2dHthMQV9I+FoXzIDKY+Y
+irqZHwVxfl/SNJeBrAshQb82UcjJXKy4rs3AhQiVw7pmCo85t/4u+EKgwjhl
+sllFASaq43H/EOjyMQxqbaPANh3tWq4iIOozcejto1BntvhwqYLAImUU7+IA
+hansm205CQSWJXSqdwxRsDF3lCQdIOAsyi179XrGZ+7VGhhCIHwnyXv3jkIE
+N9JS4EIgZsVh9dVxChdzNaLmORJImNP7OGKCQhc3UfV5BYHMKxeSPn6ksI6X
+ta/DhsD5Q4zAG5MUYs5atDQKCRS77VgVMzXTj1dMXjcnoLSo59p9mel39lt5
+AZtA9biVenqagjn/ZlMak8B/ucgSDw==
+               "]]},
+             Annotation[#, "Charting`Private`Tag$83396#1"]& ]}, {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{True, True},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 0},
+          DisplayFunction->Identity,
+          Epilog->{{
+             RGBColor[0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0], 
+             PointSize[0.02], 
+             
+             PointBox[{{0.781, 15.}, {1.563, 10.7}, {3.125, 8.76}, {6.25, 
+              7.53}}]}, {
+             RGBColor[0, 
+              NCache[
+               Rational[2, 3], 0.6666666666666666], 0], 
+             PointSize[0.005], 
+             
+             PointBox[{{0.781, 15.}, {1.563, 10.7}, {3.125, 8.76}, {6.25, 
+              7.53}}]}, 
+            InsetBox[
+             FormBox[
+              StyleBox["\"R\.b2 = 0.720\"", 12, StripOnInput -> False], 
+              TraditionalForm], 
+             Scaled[{0.85, 0.85}]]},
+          Frame->{{True, True}, {True, True}},
+          FrameLabel->{{
+             FormBox[
+              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TraditionalForm], None}, {
+             FormBox[
+              TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
+              TraditionalForm], None}},
+          FrameStyle->GrayLevel[0.3],
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{Automatic, Automatic},
+          GridLinesStyle->Directive[
+            GrayLevel[0.8], 
+            Dashing[{Small, Small}]],
+          
+          ImagePadding->{{37.2109375, 6.673828125}, {37.26953125, 
+           0.5000000000000284}},
+          ImageSize->400,
+          LabelStyle->Directive[
+            GrayLevel[0], 12],
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotLabel->FormBox[
+            StyleBox["\"Sodium bisulfite\"", 12, StripOnInput -> False], 
+            TraditionalForm],
+          PlotRange->{{0., 10.}, {0., 16.}},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{0, 0}, {0, 0}},
+          Ticks->{Automatic, Automatic}], {630, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[{GraphicsComplexBox[CompressedData["
+1:eJxN0AssFHAcwPE7NMo60cOOjp2ovGKSkkrFIo+aw2R5TUjXC9lKq+naneQR
+azcp70dKN47cWeXEuGmZ9xHq3HEuHXdem2O0XLXV7+e//fffZ9///vvvR42+
+SYvVIhAI/n/239MnVtHfOh18gvBvMfQa9j0ms93/+0JoGXdhsRKsr2GEeZlx
+wVYBc4r2TB74do+re/7Se7Axz1BCJLaAG2UeXb3H2sBt9CLTUJUQrN573KDm
++iew1ipnm6lVJ9hFE9UYWNsF7mI693TY9ILNc5Wr1XN9YOWKVDLkOACunGnq
+JD0RgUmUV/Ny+SA46wo/rtTyC3j5JEcenzoMTnYS8na1j4CltcLMfupX8E/6
+YIH13W9g21O663FNYrBXOfVyvbEE50WJtJgIk4LtVMH6w/7j4O0GC3rCNbRO
+SwF3T+EE+Kpz0+hmXxmYcza69OMyWq002TaVNwnmB3ppsz3l4FRvVglvCk0d
+8xmpYH0HHz3MZJOdpsBhZr2rRBFa3ZktS2D8AOfrRCTTLBX4fwm/XEuI3nSf
+EeSaOA0mVEdwZUYz4KQX3GyjNnSzbbqe4Q0l2NAnye4hSQUW2/eJUgToumJ3
+S3nELDic62JIWUc/YJUxxG/mwDUKSgHJbx78zFxfrdGgS3eeT8sgM8EWzB3e
+ulXYxxweeWSTk8HxLs8Xt6RgF/fnFGuL0CExK81PyTHgjJyLHVnR2DU2tFss
+AfrDne7PjGm0b/fw2yJyEHi3QFDnH4I9N6Qh/Ez9hvsvD/BOS9D7/a5JW5fQ
+B0vyCxvInuAY2qxVbQD20dnJgSoOmu0WaV0xgk6UFQZR59HjfDd61Bpax8Mk
+QUp2BqcXsaIk57CvH7m3dfg1+l3ayiXREDrP/lBOgGrDe8TBytwVtIBe4eD4
+C/0bN58+Hw==
+            "], {}], {}},
+          AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+          Axes->{False, False},
+          AxesLabel->{None, None},
+          AxesOrigin->{0, 0},
+          DisplayFunction->Identity,
+          Frame->{{False, False}, {False, False}},
+          FrameLabel->{{None, None}, {None, None}},
+          FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+          GridLines->{None, None},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0., -5.684341886080802*^-14}, {37.26953125, 
+           0.5000000000000284}},
+          ImageSize->400,
+          
+          Method->{
+           "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> 
+            None, "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& )}},
+          PlotRange->{{0, 1}, {-1., 1.}},
+          PlotRangeClipping->True,
+          PlotRangePadding->{{
+             Scaled[0.02], 
+             Scaled[0.02]}, {
+             Scaled[0.05], 
+             Scaled[0.05]}},
+          Ticks->{Automatic, Automatic}], {1050, -129.7871376374779}, 
+         ImageScaled[{0.5, 0.5}], {400, 247.2135954999579},
+         BaseStyle->{
+          Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+      ImageSize->Full,
+      PlotRange->{{0, 1260}, {-259.5742752749558, 0}},
+      PlotRangePadding->{6, 5}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Center}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.9398004194268956`*^9, 3.9398009012894125`*^9, 3.9398009662337427`*^9, {
+   3.9398010164535384`*^9, 3.9398010445238657`*^9}, {3.9398011769517193`*^9, 
+   3.9398012130698204`*^9}, 3.9398012969538593`*^9, 3.9398014145265646`*^9, 
+   3.9398015788182335`*^9, 3.939802081761401*^9, 3.9398026737518787`*^9},
+ CellLabel->
+  "Out[384]=",ExpressionUUID->"6a3a7fcd-eec2-4209-be03-e86992e6b7a9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"linear", " ", "optimization"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"res", "=", 
+   RowBox[{"LinearOptimization", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"model1", "[", 
+       SubscriptBox["x", "1"], "]"}], "+", 
+      RowBox[{"model2", "[", 
+       SubscriptBox["x", "2"], "]"}], "+", 
+      RowBox[{"model3", "[", 
+       SubscriptBox["x", "3"], "]"}], "+", 
+      RowBox[{"model4", "[", 
+       SubscriptBox["x", "1"], "]"}], "+", 
+      RowBox[{"model5", "[", 
+       SubscriptBox["x", "2"], "]"}], "+", 
+      RowBox[{"model6", "[", 
+       SubscriptBox["x", "3"], "]"}], "+", 
+      RowBox[{"model7", "[", 
+       SubscriptBox["x", "1"], "]"}], "+", 
+      RowBox[{"model8", "[", 
+       SubscriptBox["x", "4"], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FormBox[
+        TagBox[
+         RowBox[{
+          RowBox[{
+           SubscriptBox["x", "2"], "+", 
+           SubscriptBox["x", "3"]}], "<", "230"}],
+         "MathMLPresentationTag",
+         AutoDelete->True],
+        TraditionalForm], ",", 
+       FormBox[
+        TagBox[
+         RowBox[{
+          RowBox[{
+           SubscriptBox["x", "1"], "+", 
+           SubscriptBox["x", "3"]}], "<", "700"}],
+         "MathMLPresentationTag",
+         AutoDelete->True],
+        TraditionalForm], ",", 
+       FormBox[
+        TagBox[
+         RowBox[{
+          RowBox[{
+           SubscriptBox["x", "1"], "+", 
+           SubscriptBox["x", "2"]}], "<", "1030"}],
+         "MathMLPresentationTag",
+         AutoDelete->True],
+        TraditionalForm], ",", 
+       FormBox[
+        TagBox[
+         RowBox[{
+          RowBox[{
+           SubscriptBox["x", "1"], "+", 
+           SubscriptBox["x", "2"], "+", 
+           SubscriptBox["x", "3"]}], "<", "1230"}],
+         "MathMLPresentationTag",
+         AutoDelete->True],
+        TraditionalForm], ",", 
+       FormBox[
+        RowBox[{
+         RowBox[{
+          SubscriptBox["x", "2"], "+", 
+          SubscriptBox["x", "3"]}], "<", "230"}],
+        TraditionalForm], ",", 
+       FormBox[
+        RowBox[{
+         RowBox[{
+          SubscriptBox["x", "1"], "+", 
+          SubscriptBox["x", "4"]}], "<", "1500"}],
+        TraditionalForm], ",", 
+       RowBox[{
+        SubscriptBox["x", "1"], ">=", "0"}], ",", 
+       RowBox[{
+        SubscriptBox["x", "2"], ">=", "0"}], ",", 
+       RowBox[{
+        SubscriptBox["x", "3"], ">=", "0"}], ",", 
+       RowBox[{
+        SubscriptBox["x", "4"], ">=", "0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["x", "1"], ",", 
+       SubscriptBox["x", "2"], ",", 
+       SubscriptBox["x", "3"], ",", 
+       SubscriptBox["x", "4"]}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9230595688281384`*^9, 3.9230595816380453`*^9}, {
+   3.9230596117557755`*^9, 3.9230596677328653`*^9}, {3.923059746874214*^9, 
+   3.9230600238131824`*^9}, {3.9230602228477077`*^9, 3.923060241663946*^9}, {
+   3.92306029132611*^9, 3.923060353584779*^9}, {3.923061312432711*^9, 
+   3.923061342830353*^9}, {3.923074923464354*^9, 3.9230749557235203`*^9}, {
+   3.923075516603838*^9, 3.9230755752570777`*^9}, 
+   3.9398025536629753`*^9},ExpressionUUID->"6d9c6773-b565-42e3-bbc1-\
+f8dd034fa6c4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["x", "1"], "\[Rule]", "0.`"}], ",", 
+   RowBox[{
+    SubscriptBox["x", "2"], "\[Rule]", "230.`"}], ",", 
+   RowBox[{
+    SubscriptBox["x", "3"], "\[Rule]", "0.`"}], ",", 
+   RowBox[{
+    SubscriptBox["x", "4"], "\[Rule]", "1500.`"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.923060027377386*^9, 3.923060243602586*^9, 
+  3.9230603249718094`*^9, 3.9230603561551523`*^9, 3.923075576911729*^9, 
+  3.9230756887078085`*^9},
+ CellLabel->
+  "Out[146]=",ExpressionUUID->"36eb8816-6ad2-4057-ab6a-64a65e284077"]
+}, Open  ]]
+},
+WindowSize->{1152., 585.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (2023\:5e741\:670830\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a43bd1de-8e78-407a-8f9d-bcb3f8d88c6b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3296, 83, 287, "Input",ExpressionUUID->"979dc90e-20fb-4c5a-8b9b-eb3edfb44ab8"],
+Cell[CellGroupData[{
+Cell[3879, 107, 9525, 237, 762, "Input",ExpressionUUID->"3df53d13-3f39-4508-a0e2-351ad640639f"],
+Cell[13407, 346, 16437, 358, 263, "Output",ExpressionUUID->"f32c3527-6b6a-4e18-944b-ace7a6d37dad"]
+}, Open  ]],
+Cell[29859, 707, 2758, 79, 306, "Input",ExpressionUUID->"293d406d-8733-47d8-bdf9-22bc75431618"],
+Cell[CellGroupData[{
+Cell[32642, 790, 11293, 279, 833, "Input",ExpressionUUID->"9ed1de45-a568-49d8-9159-7371570045aa"],
+Cell[43938, 1071, 14014, 316, 263, "Output",ExpressionUUID->"cd496961-c93c-4602-ac0e-bd0045de73b6"]
+}, Open  ]],
+Cell[57967, 1390, 149, 3, 48, "Input",ExpressionUUID->"868ec4f6-c15b-4e02-8f85-fb1000c7da00"],
+Cell[58119, 1395, 2162, 59, 194, "Input",ExpressionUUID->"a414b09a-f4bc-49d9-b6ed-25818f06cbd4"],
+Cell[CellGroupData[{
+Cell[60306, 1458, 9482, 228, 640, "Input",ExpressionUUID->"df69b347-b2c5-4301-9f6c-717ffc39c963"],
+Cell[69791, 1688, 14227, 314, 263, "Output",ExpressionUUID->"6a3a7fcd-eec2-4209-be03-e86992e6b7a9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84055, 2007, 3249, 97, 83, "Input",ExpressionUUID->"6d9c6773-b565-42e3-bbc1-f8dd034fa6c4"],
+Cell[87307, 2106, 569, 15, 32, "Output",ExpressionUUID->"36eb8816-6ad2-4057-ab6a-64a65e284077"]
+}, Open  ]]
+}
+]
+*)
+
