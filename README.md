@@ -24,4 +24,4 @@ This is a source code for exploring the proportion of food preservatives, used a
 6. The graph produced by the model:
 ![](https://github.com/dorisgyl/PresvRatio/blob/main/staphylococcus_aureus.png)
 ![](https://github.com/dorisgyl/PresvRatio/blob/main/salmonella.png)
-![](https://github.com/dorisgyl/PresvRatio/blob/main/staphylococcus_aureus.png)
+![](https://github.com/dorisgyl/PresvRatio/blob/main/bacillus_subtilis.png)
