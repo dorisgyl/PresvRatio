@@ -22,4 +22,4 @@ This is a source code for exploring the proportion of food preservatives, used a
 5. Significance: Established framework for optimizing preservative combinations within food safety regulations
 
 6. The graph produced by the model:
-(https://github.com/dorisgyl/PresvRatio/blob/main/staphylococcus_aureus.png)
+!(https://github.com/dorisgyl/PresvRatio/blob/main/staphylococcus_aureus.png)
