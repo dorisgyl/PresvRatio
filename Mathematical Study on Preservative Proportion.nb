@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     89509,       2159]
-NotebookOptionsPosition[     87892,       2124]
-NotebookOutlinePosition[     88343,       2142]
-CellTagsIndexPosition[     88300,       2139]
+NotebookDataLength[     89540,       2149]
+NotebookOptionsPosition[     87959,       2115]
+NotebookOutlinePosition[     88374,       2132]
+CellTagsIndexPosition[     88331,       2129]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -43,11 +43,12 @@ Cell[BoxData[
       RowBox[{"data1", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
    RowBox[{
     RowBox[{"r21", "=", 
-     RowBox[{"model1", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
+     RowBox[{"model1", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"S", ".", "aureus"}], " ", "growth", " ", "with", " ", "Sodium", 
-     " ", "nitrite"}], "*)"}], "\[IndentingNewLine]", 
+     " ", "nitrite"}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"data2", "=", 
      RowBox[{"{", 
@@ -64,11 +65,12 @@ Cell[BoxData[
       RowBox[{"data2", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
    RowBox[{
     RowBox[{"r22", "=", 
-     RowBox[{"model2", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
+     RowBox[{"model2", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"S", ".", "aureus"}], " ", "growth", " ", "with", " ", "Vitamin",
-      " ", "E"}], "*)"}], "\[IndentingNewLine]", 
+      " ", "E"}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"data3", "=", 
      RowBox[{"{", 
@@ -100,8 +102,7 @@ Cell[BoxData[
    3.923124278630778*^9}, {3.9397953695437827`*^9, 3.939795390328084*^9}, {
    3.939798867737504*^9, 3.93979893639625*^9}, {3.9398021608091726`*^9, 
    3.939802166368103*^9}},
- CellLabel->
-  "In[346]:=",ExpressionUUID->"979dc90e-20fb-4c5a-8b9b-eb3edfb44ab8"],
+ CellLabel->"In[1]:=",ExpressionUUID->"979dc90e-20fb-4c5a-8b9b-eb3edfb44ab8"],
 
 Cell[CellGroupData[{
 
@@ -121,7 +122,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Red", ",", 
@@ -183,7 +184,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Green", ",", 
@@ -232,8 +233,8 @@ Cell[BoxData[
        ",", 
        RowBox[{"LabelStyle", "->", 
         RowBox[{"Directive", "[", 
-         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\n", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"plot3", "=", 
      RowBox[{"Plot", "[", 
@@ -245,7 +246,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Blue", ",", 
@@ -294,11 +295,10 @@ Cell[BoxData[
        ",", 
        RowBox[{"LabelStyle", "->", 
         RowBox[{"Directive", "[", 
-         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
-   "\[IndentingNewLine]", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
-    RowBox[{"Create", " ", "main", " ", "title"}], "*)"}], 
-   "\[IndentingNewLine]", 
+    RowBox[{"Create", " ", "main", " ", "title"}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"title", "=", 
      RowBox[{"Style", "[", 
@@ -306,12 +306,12 @@ Cell[BoxData[
       "]"}]}], ";"}], "  ", 
    RowBox[{"(*", 
     RowBox[{"Bold", ",", 
-     RowBox[{"font", " ", "size", " ", "16"}]}], "*)"}], "\n", 
-   "\[IndentingNewLine]", 
+     RowBox[{"font", " ", "size", " ", "16"}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Combine", " ", "title", " ", "and", " ", "plots", " ", "using", " ", 
-     "Column"}], "*)"}], "\[IndentingNewLine]", 
+     "Column"}], "*)"}], "\n", 
    RowBox[{"Column", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -340,9 +340,8 @@ Cell[BoxData[
    3.9397983084462624`*^9, 3.939798336705991*^9}, {3.939798478916562*^9, 
    3.9397984813371077`*^9}, {3.939798829343526*^9, 3.9397988389496503`*^9}, {
    3.939798991393549*^9, 3.939798993999193*^9}, 3.9398019850473633`*^9, 
-   3.9398022473764505`*^9},
- CellLabel->
-  "In[355]:=",ExpressionUUID->"3df53d13-3f39-4508-a0e2-351ad640639f"],
+   3.9398022473764505`*^9, {3.946888050583187*^9, 3.9468880509889703`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"3df53d13-3f39-4508-a0e2-351ad640639f"],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -353,7 +352,7 @@ Cell[BoxData[
          StripOnInput->False,
          FontSize->16,
          FontWeight->Bold], TextForm]], "InlineText",ExpressionUUID->
-       "679a9474-2804-4aab-8150-a0e136ac4dc0"],
+       "096e2d99-ade5-4228-9d32-35485d198505"],
       Text[
        Style["STAPHYLOCOCCUS AUREUS", Bold, 16]]]},
     {
@@ -391,7 +390,7 @@ hWVKoL8KpvWoSo8UZX+pQqRpo4KnEi6rL5UCo2SA6NFWQZ27ffrzNOX/sxmF
 rAECRTNm38ZmUOjiBw/ONRNIrTcS/ZWp3F9gYXS9lEBUlHZ46nHlvjxZZGIq
 gY36NNliltLPeXzJMozAfzAVIOg=
                "]]},
-             Annotation[#, "Charting`Private`Tag$79640#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$5019#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -416,7 +415,7 @@ gY36NNliltLPeXzJMozAfzAVIOg=
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -499,7 +498,7 @@ CF+vL71cVkpAqtcF7SMlwt4JU3W/lxDAWzw2mKxC+BNz/Uh7MQEFVSU5JImw
 Z1a7q6SIgLtp+jFPZhEe3UTfP3+LgIrgoz6p8whnT4emLS4koNau1XrzV4TX
 ltx9YFNAQINypXZhAeGhvZJe13wC/gN1aV2I
                "]]},
-             Annotation[#, "Charting`Private`Tag$79934#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$5448#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -524,7 +523,7 @@ ltx9YFNAQINypXZhAeGhvZJe13wC/gN1aV2I
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -607,7 +606,7 @@ ws3uc7chb8430lFx11yK1L1GHgMcmgit5XlZllJUZ225fk6NJoG3LHeyraXQ
 fVoo38Cc+8P5iNs2c/upeq3Z2Rly2rN5edpGKVL0e9Pv0DPErjhzgaO9FBfB
 /pA7PUM6u0UfZokU/aFmYd6fZ8h/wD0mkg==
                "]]},
-             Annotation[#, "Charting`Private`Tag$80228#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$5742#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -632,7 +631,7 @@ fVoo38Cc+8P5iNs2c/upeq3Z2Rly2rN5edpGKVL0e9Pv0DPErjhzgaO9FBfB
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -700,9 +699,8 @@ fVoo38Cc+8P5iNs2c/upeq3Z2Rly2rN5edpGKVL0e9Pv0DPErjhzgaO9FBfB
    3.9397982640986094`*^9}, {3.9397983279915857`*^9, 3.939798352391513*^9}, 
    3.9397984835535474`*^9, 3.939798840695491*^9, 3.9397989448156013`*^9, {
    3.9397989957149353`*^9, 3.9397990132342663`*^9}, 3.939801653889537*^9, 
-   3.9398019873228335`*^9, 3.9398025644411774`*^9},
- CellLabel->
-  "Out[359]=",ExpressionUUID->"f32c3527-6b6a-4e18-944b-ace7a6d37dad"]
+   3.9398019873228335`*^9, 3.9398025644411774`*^9, 3.946888097963331*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"36d93c97-dba1-4b4d-b38d-7b053829c3eb"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -731,11 +729,10 @@ Cell[BoxData[
       RowBox[{"data4", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
    RowBox[{
     RowBox[{"r24", "=", 
-     RowBox[{"model4", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
+     RowBox[{"model4", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
    RowBox[{"(*", 
     RowBox[{"Salmonella", "-", 
-     RowBox[{"Sodium", " ", "nitrite"}]}], "*)"}], "\n", 
+     RowBox[{"Sodium", " ", "nitrite"}]}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"data5", "=", 
      RowBox[{"{", 
@@ -758,11 +755,10 @@ Cell[BoxData[
       RowBox[{"data5", ",", "x", ",", "x"}], "]"}]}], ";"}], "\n", 
    RowBox[{
     RowBox[{"r25", "=", 
-     RowBox[{"model5", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
+     RowBox[{"model5", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
    RowBox[{"(*", 
     RowBox[{"Salmonella", "-", 
-     RowBox[{"Vitamin", " ", "E"}]}], "*)"}], "\n", 
+     RowBox[{"Vitamin", " ", "E"}]}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"data6", "=", 
      RowBox[{"{", 
@@ -783,8 +779,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.9322447240271063`*^9, 3.93224472658687*^9}, {
   3.939799087875168*^9, 3.9397991454958405`*^9}, {3.93980231704242*^9, 
   3.9398023446176915`*^9}},
- CellLabel->
-  "In[360]:=",ExpressionUUID->"293d406d-8733-47d8-bdf9-22bc75431618"],
+ CellLabel->"In[15]:=",ExpressionUUID->"293d406d-8733-47d8-bdf9-22bc75431618"],
 
 Cell[CellGroupData[{
 
@@ -804,7 +799,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Red", ",", 
@@ -876,7 +871,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Green", ",", 
@@ -935,8 +930,8 @@ Cell[BoxData[
        ",", 
        RowBox[{"LabelStyle", "->", 
         RowBox[{"Directive", "[", 
-         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\n", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"plot6", "=", 
      RowBox[{"Plot", "[", 
@@ -948,7 +943,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Blue", ",", 
@@ -1013,11 +1008,10 @@ Cell[BoxData[
        ",", 
        RowBox[{"LabelStyle", "->", 
         RowBox[{"Directive", "[", 
-         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
-   "\[IndentingNewLine]", 
+         RowBox[{"Black", ",", "12"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
-    RowBox[{"Create", " ", "main", " ", "title"}], "*)"}], 
-   "\[IndentingNewLine]", 
+    RowBox[{"Create", " ", "main", " ", "title"}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"title", "=", 
      RowBox[{"Style", "[", 
@@ -1025,12 +1019,12 @@ Cell[BoxData[
    "  ", 
    RowBox[{"(*", 
     RowBox[{"Bold", ",", 
-     RowBox[{"font", " ", "size", " ", "16"}]}], "*)"}], "\n", 
-   "\[IndentingNewLine]", 
+     RowBox[{"font", " ", "size", " ", "16"}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Combine", " ", "title", " ", "and", " ", "plots", " ", "using", " ", 
-     "Column"}], "*)"}], "\[IndentingNewLine]", 
+     "Column"}], "*)"}], "\n", 
    RowBox[{"Column", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -1065,9 +1059,9 @@ Cell[BoxData[
    3.939799968359577*^9, 3.939799969838407*^9}, {3.9398000108138885`*^9, 
    3.9398000115910697`*^9}, {3.939800063688942*^9, 3.9398000653014174`*^9}, {
    3.939801779646626*^9, 3.939801820821676*^9}, {3.9398018607639437`*^9, 
-   3.939801888440708*^9}, 3.939802032869571*^9, 3.9398024076143274`*^9},
- CellLabel->
-  "In[369]:=",ExpressionUUID->"9ed1de45-a568-49d8-9159-7371570045aa"],
+   3.939801888440708*^9}, 3.939802032869571*^9, 3.9398024076143274`*^9, {
+   3.946888051332103*^9, 3.946888051731061*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"9ed1de45-a568-49d8-9159-7371570045aa"],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -1078,7 +1072,7 @@ Cell[BoxData[
          StripOnInput->False,
          FontSize->16,
          FontWeight->Bold], TextForm]], "InlineText",ExpressionUUID->
-       "74b1def8-e936-4b76-91a4-642d78711bad"],
+       "084b8256-b5c7-4e3a-aa07-706954896036"],
       Text[
        Style["SALMONELLA", Bold, 16]]]},
     {
@@ -1116,7 +1110,7 @@ pbNm6u9tX/ltKzl6KkVD6mqGEq5QHci2kSOspSVp+jmGCrlhs5m7Qo7dw7cK
 JGemenjjaP1WDj2+5wJpJUOd8m5evMdBjhKzjrO55Qy1+mjWDCeRHFaOPg5V
 pQzV/0QyylByNG58dLtdxVD/AXihGQI=
                "]]},
-             Annotation[#, "Charting`Private`Tag$81375#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$6920#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -1145,7 +1139,7 @@ pQzV/0QyylByNG58dLtdxVD/AXihGQI=
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -1215,7 +1209,7 @@ k5naiaFtQPD5FUdFeOc/phAqecebbkDg6kO6lHLkP8FyH0Unq29ANPzyFo0r
 2pFtzz+0zymL2dRxQLBUlPo+SMM/jMb+MCBdckAAMG8CP3aoP97VX8hrnHJA
 AAAAAAAAAAA2uz1x
                "]]},
-             Annotation[#, "Charting`Private`Tag$81669#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$7214#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -1244,7 +1238,7 @@ AAAAAAAAAAA2uz1x
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -1301,7 +1295,7 @@ AAAAAAAAAAA2uz1x
                7.3962948441888585`}, {1143.31994105603, 3.750374263677074}, {
                1185.24038934684, 0.17101290961547022`}, {1187.2432432432372`, 
                0.}}]},
-             Annotation[#, "Charting`Private`Tag$81963#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$7508#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -1326,7 +1320,7 @@ AAAAAAAAAAA2uz1x
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -1383,9 +1377,8 @@ AAAAAAAAAAA2uz1x
  CellChangeTimes->{{3.939800048119157*^9, 3.9398000665630217`*^9}, 
    3.939801661137746*^9, 3.9398017813841686`*^9, 3.939801823260554*^9, {
    3.9398018632522345`*^9, 3.9398018895684843`*^9}, 3.9398020346537495`*^9, 
-   3.93980265232137*^9},
- CellLabel->
-  "Out[373]=",ExpressionUUID->"cd496961-c93c-4602-ac0e-bd0045de73b6"]
+   3.93980265232137*^9, 3.9468881146322947`*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"66e98802-b85a-4c55-8518-370e150a38fb"]
 }, Open  ]],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
@@ -1421,11 +1414,12 @@ Cell[BoxData[
        RowBox[{"{", "x", "}"}], ",", "x"}], "]"}]}], ";"}], "\n", 
    RowBox[{
     RowBox[{"r27", "=", 
-     RowBox[{"model7", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], "\n", 
+     RowBox[{"model7", "[", "\"\<RSquared\>\"", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"Bacillus", " ", "subtilis"}], "-", 
-     RowBox[{"Sodium", " ", "bisulfite"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"Sodium", " ", "bisulfite"}]}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"data8", "=", 
      RowBox[{"{", 
@@ -1451,8 +1445,7 @@ Cell[BoxData[
    3.9230570995055933`*^9}, 3.9231242202008486`*^9, 3.9231244425195713`*^9, {
    3.93980020045061*^9, 3.939800225201005*^9}, {3.939802464366111*^9, 
    3.939802468660698*^9}},
- CellLabel->
-  "In[374]:=",ExpressionUUID->"a414b09a-f4bc-49d9-b6ed-25818f06cbd4"],
+ CellLabel->"In[29]:=",ExpressionUUID->"a414b09a-f4bc-49d9-b6ed-25818f06cbd4"],
 
 Cell[CellGroupData[{
 
@@ -1473,7 +1466,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Red", ",", 
@@ -1545,7 +1538,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<Concentration (\[Mu]g/ml)\>\"", ",", 
-          "\"\<The number of bacteria (\[Mu]g)\>\""}], "}"}]}], ",", 
+          "\"\<Bacteria mass (\[Mu]g)\>\""}], "}"}]}], ",", 
        RowBox[{"PlotStyle", "->", 
         RowBox[{"{", 
          RowBox[{"Green", ",", 
@@ -1682,9 +1675,9 @@ Cell[BoxData[
    3.93980101515447*^9, 3.9398010433460474`*^9}, {3.939801170116949*^9, 
    3.939801212123098*^9}, 3.9398012947802377`*^9, {3.9398014101431017`*^9, 
    3.9398014106976795`*^9}, {3.9398015764159813`*^9, 3.9398015765613127`*^9}, 
-   3.939802078643034*^9, 3.939802528971608*^9},
- CellLabel->
-  "In[380]:=",ExpressionUUID->"df69b347-b2c5-4301-9f6c-717ffc39c963"],
+   3.939802078643034*^9, 3.939802528971608*^9, {3.9468880519887037`*^9, 
+   3.946888052142223*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"df69b347-b2c5-4301-9f6c-717ffc39c963"],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -1695,7 +1688,7 @@ Cell[BoxData[
          StripOnInput->False,
          FontSize->16,
          FontWeight->Bold], TextForm]], "InlineText",ExpressionUUID->
-       "9cb31d59-9585-4bdc-8d72-4b4187a624a1"],
+       "61fffb9c-e355-4dba-87b5-9dc66af0eaa9"],
       Text[
        Style["BACILLUS SUBTILIS", Bold, 16]]]},
     {
@@ -1733,7 +1726,7 @@ XC3IK3MeDXeNgIJglUMzxrmzFtGQmHhX7awhMHhhzh3KhEaX76YefrVq75/u
 hrMxf87ZKwTOejYuTVxHw+em9UJdldfnpWjY8mhEb7Ayyqwk8KLXbXyaT+NY
 p+UqSuX/ACWuGT4=
                "]]},
-             Annotation[#, "Charting`Private`Tag$83101#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$8646#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -1762,7 +1755,7 @@ p+UqSuX/ACWuGT4=
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -1844,7 +1837,7 @@ N9JS4EIgZsVh9dVxChdzNaLmORJImNP7OGKCQhc3UfV5BYHMKxeSPn6ksI6X
 ta/DhsD5Q4zAG5MUYs5atDQKCRS77VgVMzXTj1dMXjcnoLSo59p9mel39lt5
 AZtA9biVenqagjn/ZlMak8B/ucgSDw==
                "]]},
-             Annotation[#, "Charting`Private`Tag$83396#1"]& ]}, {}},
+             Annotation[#, "Charting`Private`Tag$8941#1"]& ]}, {}},
           AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
           Axes->{True, True},
           AxesLabel->{None, None},
@@ -1873,7 +1866,7 @@ AZtA9biVenqagjn/ZlMak8B/ucgSDw==
           Frame->{{True, True}, {True, True}},
           FrameLabel->{{
              FormBox[
-              TagBox["\"The number of bacteria (\[Mu]g)\"", HoldForm], 
+              TagBox["\"Bacteria mass (\[Mu]g)\"", HoldForm], 
               TraditionalForm], None}, {
              FormBox[
               TagBox["\"Concentration (\[Mu]g/ml)\"", HoldForm], 
@@ -1998,9 +1991,9 @@ C/0bN58+Hw==
   3.9398004194268956`*^9, 3.9398009012894125`*^9, 3.9398009662337427`*^9, {
    3.9398010164535384`*^9, 3.9398010445238657`*^9}, {3.9398011769517193`*^9, 
    3.9398012130698204`*^9}, 3.9398012969538593`*^9, 3.9398014145265646`*^9, 
-   3.9398015788182335`*^9, 3.939802081761401*^9, 3.9398026737518787`*^9},
- CellLabel->
-  "Out[384]=",ExpressionUUID->"6a3a7fcd-eec2-4209-be03-e86992e6b7a9"]
+   3.9398015788182335`*^9, 3.939802081761401*^9, 3.9398026737518787`*^9, 
+   3.946888126984871*^9},
+ CellLabel->"Out[39]=",ExpressionUUID->"26d6e7c3-150a-400f-a4bd-9d0e98c86636"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2100,9 +2093,8 @@ Cell[BoxData[
    3.9230600238131824`*^9}, {3.9230602228477077`*^9, 3.923060241663946*^9}, {
    3.92306029132611*^9, 3.923060353584779*^9}, {3.923061312432711*^9, 
    3.923061342830353*^9}, {3.923074923464354*^9, 3.9230749557235203`*^9}, {
-   3.923075516603838*^9, 3.9230755752570777`*^9}, 
-   3.9398025536629753`*^9},ExpressionUUID->"6d9c6773-b565-42e3-bbc1-\
-f8dd034fa6c4"],
+   3.923075516603838*^9, 3.9230755752570777`*^9}, 3.9398025536629753`*^9},
+ CellLabel->"In[40]:=",ExpressionUUID->"6d9c6773-b565-42e3-bbc1-f8dd034fa6c4"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2117,14 +2109,12 @@ Cell[BoxData[
     SubscriptBox["x", "4"], "\[Rule]", "1500.`"}]}], "}"}]], "Output",
  CellChangeTimes->{3.923060027377386*^9, 3.923060243602586*^9, 
   3.9230603249718094`*^9, 3.9230603561551523`*^9, 3.923075576911729*^9, 
-  3.9230756887078085`*^9},
- CellLabel->
-  "Out[146]=",ExpressionUUID->"36eb8816-6ad2-4057-ab6a-64a65e284077"]
+  3.9230756887078085`*^9, 3.9468881317051935`*^9},
+ CellLabel->"Out[40]=",ExpressionUUID->"30dda1ca-c834-43b8-bab6-f80a17fc8f0e"]
 }, Open  ]]
 },
-WindowSize->{1152., 585.6},
-WindowMargins->{{
-  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+WindowSize->{1141.2, 579.6},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (2023\:5e741\:670830\
 \:65e5)",
 StyleDefinitions->"Default.nb",
@@ -2141,25 +2131,25 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 3296, 83, 287, "Input",ExpressionUUID->"979dc90e-20fb-4c5a-8b9b-eb3edfb44ab8"],
+Cell[558, 20, 3299, 84, 287, "Input",ExpressionUUID->"979dc90e-20fb-4c5a-8b9b-eb3edfb44ab8"],
 Cell[CellGroupData[{
-Cell[3879, 107, 9525, 237, 762, "Input",ExpressionUUID->"3df53d13-3f39-4508-a0e2-351ad640639f"],
-Cell[13407, 346, 16437, 358, 263, "Output",ExpressionUUID->"f32c3527-6b6a-4e18-944b-ace7a6d37dad"]
+Cell[3882, 108, 9538, 235, 762, "Input",ExpressionUUID->"3df53d13-3f39-4508-a0e2-351ad640639f"],
+Cell[13423, 345, 16425, 357, 261, "Output",ExpressionUUID->"36d93c97-dba1-4b4d-b38d-7b053829c3eb"]
 }, Open  ]],
-Cell[29859, 707, 2758, 79, 306, "Input",ExpressionUUID->"293d406d-8733-47d8-bdf9-22bc75431618"],
+Cell[29863, 705, 2746, 76, 306, "Input",ExpressionUUID->"293d406d-8733-47d8-bdf9-22bc75431618"],
 Cell[CellGroupData[{
-Cell[32642, 790, 11293, 279, 833, "Input",ExpressionUUID->"9ed1de45-a568-49d8-9159-7371570045aa"],
-Cell[43938, 1071, 14014, 316, 263, "Output",ExpressionUUID->"cd496961-c93c-4602-ac0e-bd0045de73b6"]
+Cell[32634, 785, 11308, 278, 798, "Input",ExpressionUUID->"9ed1de45-a568-49d8-9159-7371570045aa"],
+Cell[43945, 1065, 14004, 315, 261, "Output",ExpressionUUID->"66e98802-b85a-4c55-8518-370e150a38fb"]
 }, Open  ]],
-Cell[57967, 1390, 149, 3, 48, "Input",ExpressionUUID->"868ec4f6-c15b-4e02-8f85-fb1000c7da00"],
-Cell[58119, 1395, 2162, 59, 194, "Input",ExpressionUUID->"a414b09a-f4bc-49d9-b6ed-25818f06cbd4"],
+Cell[57964, 1383, 149, 3, 48, "Input",ExpressionUUID->"868ec4f6-c15b-4e02-8f85-fb1000c7da00"],
+Cell[58116, 1388, 2162, 59, 194, "Input",ExpressionUUID->"a414b09a-f4bc-49d9-b6ed-25818f06cbd4"],
 Cell[CellGroupData[{
-Cell[60306, 1458, 9482, 228, 640, "Input",ExpressionUUID->"df69b347-b2c5-4301-9f6c-717ffc39c963"],
-Cell[69791, 1688, 14227, 314, 263, "Output",ExpressionUUID->"6a3a7fcd-eec2-4209-be03-e86992e6b7a9"]
+Cell[60303, 1451, 9512, 228, 640, "Input",ExpressionUUID->"df69b347-b2c5-4301-9f6c-717ffc39c963"],
+Cell[69818, 1681, 14229, 314, 261, "Output",ExpressionUUID->"26d6e7c3-150a-400f-a4bd-9d0e98c86636"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[84055, 2007, 3249, 97, 83, "Input",ExpressionUUID->"6d9c6773-b565-42e3-bbc1-f8dd034fa6c4"],
-Cell[87307, 2106, 569, 15, 32, "Output",ExpressionUUID->"36eb8816-6ad2-4057-ab6a-64a65e284077"]
+Cell[84084, 2000, 3267, 96, 83, "Input",ExpressionUUID->"6d9c6773-b565-42e3-bbc1-f8dd034fa6c4"],
+Cell[87354, 2098, 589, 14, 81, "Output",ExpressionUUID->"30dda1ca-c834-43b8-bab6-f80a17fc8f0e"]
 }, Open  ]]
 }
 ]
